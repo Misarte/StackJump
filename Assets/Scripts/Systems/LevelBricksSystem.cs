@@ -22,6 +22,7 @@ public class LevelBricksSystem : MonoBehaviour
         
     }
 
+    //Spawns brick randomly between left and right side of screen
     public void SpawnBrick(Vector3 playerPos)
 	{
         int indexR = Random.Range(0, spawnPositionsX.Length);
@@ -33,11 +34,13 @@ public class LevelBricksSystem : MonoBehaviour
 
         BrickBehaviour brick = Instantiate(brickBehaviour, brickSpawnPosition, Quaternion.identity);
 
+        //queue used for detecting bonus score
 		if (bricks.Count >= 2)
 			bricks.Dequeue();
 
 		bricks.Enqueue(brick);
 
+        //prevents spawning bricks more than once
 		KillAllCoroutines();
         if (spawnBrickCoroutine == null)  
             spawnBrickCoroutine = StartCoroutine(brick.MoveBrick(playerPos));

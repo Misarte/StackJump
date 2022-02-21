@@ -44,7 +44,7 @@ public class ScoreSystem : MonoBehaviour
         exitButton.onClick.AddListener(SaveScore);
         score = LoadScore();
     }
-
+    //Load score from json file
     private int LoadScore()
 	{
         string fullPath = Application.persistentDataPath + path;
@@ -67,7 +67,7 @@ public class ScoreSystem : MonoBehaviour
         savedScore = playerData.score;
         return playerData.score;
     }
-
+    //Save score to json file
     public void SaveScore()
     {
 
@@ -95,7 +95,7 @@ public class ScoreSystem : MonoBehaviour
         score += bonusCounter;
         ScoreUpdated?.Invoke(score);
     }
-
+    //Checkws the position of the last 2 bricks
     private void CheckBricks()
 	{
         if (bricksSystem.Bricks.Count <= 1)
@@ -109,7 +109,7 @@ public class ScoreSystem : MonoBehaviour
             bricksList.Add(brick);
 
         previousBrick = bricksList[1];
-
+        //If bricks are aligned we double the score added to the current score
         if (Mathf.Abs(lastBrick.transform.position.x - previousBrick.transform.position.x) < 0.1)
             AddBonusScore();
         else

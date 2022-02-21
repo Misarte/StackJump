@@ -7,6 +7,7 @@ public class BrickBehaviour : MonoBehaviour
     [SerializeField]
     private float movementSpeed = 2.0f;
    
+	//Smooth movement of brick from start position toward player position
     public IEnumerator MoveBrick(Vector3 targetPosition)
 	{
         float timeElapsed = 0;

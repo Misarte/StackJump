@@ -14,6 +14,7 @@ public class CameraBehaviour : MonoBehaviour
         player.OnPlayerUpperFloor += MoveCamera;
     }
 
+    //Adjust Camera position (height) to be following player 
     private void MoveCamera(Vector3 playerPosition)
 	{
         Vector3 newCameraPos = new Vector3(initPos.x, playerPosition.y, initPos.z);
