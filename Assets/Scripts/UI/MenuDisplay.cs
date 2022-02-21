@@ -22,6 +22,7 @@ public class MenuDisplay : MonoBehaviour
     }
 
     // Update is called once per frame
+    //Initilize Spawning bricks system
     private void StartGame()
     {
         bricksSystem.SpawnBrick(new Vector3(0, 0.5f, 0));
